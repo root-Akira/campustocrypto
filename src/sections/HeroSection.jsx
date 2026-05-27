@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 
 export default function HeroSection() {
@@ -31,7 +32,7 @@ export default function HeroSection() {
         </Reveal>
         <Reveal>
           <div className="cta-group">
-            <a href="#join" className="btn-large btn-primary">Register for upcoming event →</a>
+            <Link to="/register" className="btn-large btn-primary">Register for upcoming event →</Link>
             <a href="#about" className="btn-large btn-secondary">Learn More</a>
           </div>
         </Reveal>

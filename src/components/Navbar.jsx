@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const links = [
@@ -21,15 +21,21 @@ function scrollTo(id) {
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
+  const navigate = useNavigate()
+  const isHome = pathname === '/'
 
   const handleClick = (href) => {
     setOpen(false)
-    scrollTo(href)
+    if (isHome) {
+      scrollTo(href)
+    } else {
+      navigate('/')
+    }
   }
 
   return (
     <nav>
-      {pathname === '/' ? (
+      {isHome ? (
         <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); scrollTo('#home') }}>CampustoCrypto</a>
       ) : (
         <Link to="/" className="logo">CampustoCrypto</Link>
@@ -41,7 +47,7 @@ export default function Navbar() {
         ))}
         <Link to="/about" onClick={() => setOpen(false)}>About</Link>
       </div>
-      {pathname === '/' ? (
+      {isHome ? (
         <a href="#join" className="btn-small" onClick={(e) => { e.preventDefault(); scrollTo('#join') }}>Join Us →</a>
       ) : (
         <Link to="/" className="btn-small">Back to Home →</Link>
