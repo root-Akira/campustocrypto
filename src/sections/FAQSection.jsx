@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Reveal from '../components/Reveal'
 
 const faqs = [
+  { q: 'Where do events, workshops, and hackathons happen? Can I join?', a: 'Events, workshops, and hackathons are held at Centurion University and are open to everyone — anybody can join!' },
   { q: 'Do I need to know anything about crypto to join?', a: 'Not at all! We welcome complete beginners. Our workshops start from the very basics and work up from there.' },
   { q: 'Is this only for CS/tech students?', a: 'No — we welcome students from all majors: business, design, law, economics, and beyond. Crypto touches everything.' },
   { q: 'Is there a membership fee?', a: 'Zero. CampustoCrypto is completely free for all students.' },
