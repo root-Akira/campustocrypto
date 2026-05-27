@@ -139,7 +139,7 @@ nav {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 77px;
+  padding-top: 57px;
   z-index: 2;
   position: relative;
 }
@@ -147,7 +147,7 @@ nav {
 h1 {
   font-size: 3.5rem;
   line-height: 1.1;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   font-weight: 700;
 }
 
@@ -272,7 +272,7 @@ h1 {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 30px 20px;
   width: 100%;
 }
 
@@ -332,6 +332,58 @@ h1 {
 
 .card:hover .card-icon {
   transform: scale(1.15);
+}
+
+/* Numbers / Stats */
+.stats-grid {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.3s ease;
+  flex: 1;
+  min-width: 140px;
+  max-width: 200px;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--accent-color);
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.6rem;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .stats-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .stat-card {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .team-role {
@@ -500,5 +552,5 @@ footer {
   .mobile-toggle { display: block; }
   .features { grid-template-columns: 1fr; }
   .cta-group { flex-direction: column; align-items: center; }
-  .content-page { padding: 40px 20px; }
+  .content-page { padding: 30px 20px; }
 }
