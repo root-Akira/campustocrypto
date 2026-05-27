@@ -386,6 +386,132 @@ h1 {
   }
 }
 
+/* Timeline / Journey */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-color);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.timeline-item.left {
+  flex-direction: row;
+}
+
+.timeline-item.right {
+  flex-direction: row-reverse;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  border: 3px solid var(--bg-color);
+  box-shadow: 0 0 0 2px var(--accent-color);
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.timeline-card-year {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.timeline-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: var(--glass-shadow);
+  width: calc(50% - 35px);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.timeline-card h3 {
+  padding-right: 50px;
+}
+
+.timeline-card:hover {
+  transform: translateY(-3px);
+}
+
+.timeline-item.left .timeline-card {
+  margin-right: auto;
+}
+
+.timeline-item.right .timeline-card {
+  margin-left: auto;
+}
+
+.timeline-card h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  color: var(--accent-color);
+}
+
+.timeline-card p {
+  font-size: 0.72rem;
+  opacity: 0.75;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    flex-direction: row;
+    padding-left: 50px;
+  }
+
+  .timeline-dot {
+    left: 20px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-card {
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  .timeline-item {
+    margin-bottom: 30px;
+  }
+}
+
 .team-role {
   text-transform: uppercase;
   font-size: 0.65rem;

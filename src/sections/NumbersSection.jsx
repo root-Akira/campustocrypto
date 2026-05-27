@@ -9,7 +9,7 @@ const stats = [
 
 export default function NumbersSection() {
   return (
-    <section id="numbers" className="content-page" style={{ paddingBottom: 5 }}>
+    <section id="numbers" className="content-page">
       <h1>By the Numbers</h1>
       <p className="page-subtitle">Proven Results, Real Talent</p>
       <Reveal>
