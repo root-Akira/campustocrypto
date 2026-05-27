@@ -7,7 +7,7 @@ const links = [
   { href: '#journey', label: 'Journey' },
   { href: '#partners', label: 'Partners' },
   { href: '#events', label: 'Events' },
-  { href: '#blog', label: 'Blog' },
+
   { href: '#team', label: 'Team' },
   { href: '#faq', label: 'FAQ' },
 ]
@@ -46,6 +46,7 @@ export default function Navbar() {
           <a key={l.href} href={l.href} onClick={(e) => { e.preventDefault(); handleClick(l.href) }}>{l.label}</a>
         ))}
         <Link to="/about" onClick={() => setOpen(false)}>About</Link>
+        <Link to="/blog" onClick={() => setOpen(false)}>Blog</Link>
       </div>
       {isHome ? (
         <a href="#join" className="btn-small" onClick={(e) => { e.preventDefault(); scrollTo('#join') }}>Join Us →</a>
