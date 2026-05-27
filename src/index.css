@@ -16,7 +16,7 @@
 }
 
 :root {
-  --nav-height: 100px;
+  --nav-height: 80px;
 }
 
 section {
@@ -43,12 +43,12 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: 15px 40px;
   max-width: 1300px;
   margin: 0 auto;
   width: 100%;
   position: fixed;
-  top: 30px;
+  top: 25px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;

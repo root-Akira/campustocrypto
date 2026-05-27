@@ -1,10 +1,12 @@
+import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 
 const links = [
   { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
+  { href: '#numbers', label: 'Numbers' },
+  { href: '#journey', label: 'Journey' },
+  { href: '#partners', label: 'Partners' },
   { href: '#events', label: 'Events' },
-  { href: '#resources', label: 'Resources' },
   { href: '#blog', label: 'Blog' },
   { href: '#team', label: 'Team' },
   { href: '#faq', label: 'FAQ' },
@@ -18,6 +20,7 @@ function scrollTo(id) {
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
 
   const handleClick = (href) => {
     setOpen(false)
@@ -26,14 +29,23 @@ export default function Navbar() {
 
   return (
     <nav>
-      <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); scrollTo('#home') }}>CampustoCrypto</a>
+      {pathname === '/' ? (
+        <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); scrollTo('#home') }}>CampustoCrypto</a>
+      ) : (
+        <Link to="/" className="logo">CampustoCrypto</Link>
+      )}
       <button className="mobile-toggle" onClick={() => setOpen((v) => !v)}>☰</button>
       <div className={`nav-links${open ? ' open' : ''}`}>
         {links.map((l) => (
           <a key={l.href} href={l.href} onClick={(e) => { e.preventDefault(); handleClick(l.href) }}>{l.label}</a>
         ))}
+        <Link to="/about" onClick={() => setOpen(false)}>About</Link>
       </div>
-      <a href="#join" className="btn-small" onClick={(e) => { e.preventDefault(); scrollTo('#join') }}>Join Us →</a>
+      {pathname === '/' ? (
+        <a href="#join" className="btn-small" onClick={(e) => { e.preventDefault(); scrollTo('#join') }}>Join Us →</a>
+      ) : (
+        <Link to="/" className="btn-small">Back to Home →</Link>
+      )}
     </nav>
   )
 }

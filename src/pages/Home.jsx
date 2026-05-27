@@ -1,8 +1,9 @@
 import Layout from '../components/Layout'
 import HeroSection from '../sections/HeroSection'
-import AboutSection from '../sections/AboutSection'
+import NumbersSection from '../sections/NumbersSection'
+import JourneySection from '../sections/JourneySection'
+import PartnersSection from '../sections/PartnersSection'
 import EventsSection from '../sections/EventsSection'
-import ResourcesSection from '../sections/ResourcesSection'
 import BlogSection from '../sections/BlogSection'
 import TeamSection from '../sections/TeamSection'
 import FAQSection from '../sections/FAQSection'
@@ -12,9 +13,10 @@ export default function Home() {
   return (
     <Layout>
       <HeroSection />
-      <AboutSection />
+      <NumbersSection />
+      <JourneySection />
+      <PartnersSection />
       <EventsSection />
-      <ResourcesSection />
       <BlogSection />
       <TeamSection />
       <FAQSection />
