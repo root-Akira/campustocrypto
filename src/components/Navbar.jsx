@@ -45,8 +45,7 @@ export default function Navbar() {
         {links.map((l) => (
           <a key={l.href} href={l.href} onClick={(e) => { e.preventDefault(); handleClick(l.href) }}>{l.label}</a>
         ))}
-        <Link to="/about" onClick={() => setOpen(false)}>About</Link>
-        <Link to="/blog" onClick={() => setOpen(false)}>Blog</Link>
+        <Link to="/about" onClick={() => setOpen(false)}>About Us</Link>
       </div>
       {isHome ? (
         <a href="#join" className="btn-small" onClick={(e) => { e.preventDefault(); scrollTo('#join') }}>Join Us →</a>
