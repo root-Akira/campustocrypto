@@ -1,18 +1,23 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Register from './pages/Register'
-import Journey from './pages/Journey'
-import Events from './pages/Events'
+import Loading from './components/Loading'
+
+const Home = lazy(() => import('./pages/Home'))
+const About = lazy(() => import('./pages/About'))
+const Register = lazy(() => import('./pages/Register'))
+const Journey = lazy(() => import('./pages/Journey'))
+const Events = lazy(() => import('./pages/Events'))
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/register" element={<Register />} />
-      <Route path="/journey" element={<Journey />} />
-      <Route path="/events" element={<Events />} />
-    </Routes>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/journey" element={<Journey />} />
+        <Route path="/events" element={<Events />} />
+      </Routes>
+    </Suspense>
   )
 }

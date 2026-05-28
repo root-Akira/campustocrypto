@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import HeroBg from '../components/HeroBg'
@@ -29,11 +28,6 @@ export default function Journey() {
             </div>
           ))}
         </div>
-        <Reveal>
-          <div className="cta-group" style={{ justifyContent: 'center' }}>
-            <Link to="/" className="btn-large btn-primary">Back to Home →</Link>
-          </div>
-        </Reveal>
       </div>
       <HeroBg />
       <Footer />

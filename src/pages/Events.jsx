@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import HeroBg from '../components/HeroBg'
@@ -21,11 +20,6 @@ export default function Events() {
                 <p>{item.text}</p>
               </div>
             ))}
-          </div>
-        </Reveal>
-        <Reveal>
-          <div className="cta-group" style={{ justifyContent: 'center' }}>
-            <Link to="/" className="btn-large btn-primary">Back to Home →</Link>
           </div>
         </Reveal>
       </div>
