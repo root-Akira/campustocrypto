@@ -276,6 +276,35 @@ h1 {
   margin-bottom: 15px;
 }
 
+.about-content {
+  max-width: 750px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  padding: 40px;
+}
+
+.about-content p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  opacity: 0.85;
+}
+
+.about-tagline {
+  font-weight: 700;
+  color: var(--accent-color);
+  font-size: 1rem !important;
+  text-align: center;
+  margin-top: 10px;
+}
+
 .page-subtitle {
   text-align: center;
   opacity: 0.8;
