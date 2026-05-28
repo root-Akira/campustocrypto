@@ -6,7 +6,7 @@
 
 :root {
   --bg-color: #cbd9d3;
-  --text-color: #0d2b26;
+  --text-color: #0a0a0a;
   --accent-color: #ef6c61;
   --accent-hover: #d95d53;
   --glass-bg: rgba(255, 255, 255, 0.08);
@@ -142,7 +142,7 @@ nav {
 h1 {
   font-size: 3.5rem;
   line-height: 1.1;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   font-weight: 700;
 }
 
@@ -150,7 +150,7 @@ h1 {
   max-width: 650px;
   font-size: 0.95rem;
   opacity: 0.8;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   padding: 0 20px;
 }
 
@@ -258,7 +258,7 @@ h1 {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(203, 217, 211, 0.85) 0%, rgba(203, 217, 211, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(203, 217, 211, 0.4) 0%, rgba(203, 217, 211, 0.1) 100%);
 }
 
 .content-page {
@@ -267,7 +267,7 @@ h1 {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 23.5px 20px;
+  padding: 60px 20px 23.5px;
   width: 100%;
 }
 

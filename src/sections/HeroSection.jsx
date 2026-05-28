@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section id="home">
       <main className="hero">
-        <h1>Build the Future<br />of Web3 in Odisha</h1>
+        <h1>From Campus to Crypto</h1>
         <p className="subtext">
           <span>Odisha's First Blockchain Community</span>
           <span className="sub-gap">The student-led Web3 community at Centurion University<br /></span>
