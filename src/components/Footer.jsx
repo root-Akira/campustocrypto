@@ -8,7 +8,7 @@ export default function Footer() {
           <img src="/Logo/centurion-logo/Centurion University_Logo_Dark.png" alt="Centurion University" className="footer-logo" />
         </div>
         <div className="footer-info">
-          <p className="footer-email"><a href="mailto:">info@campustocrypto.com</a></p>
+          <p className="footer-email"><a href="mailto:info@campustocrypto.com">info@campustocrypto.com</a></p>
           <p className="footer-contact">Centurion University Technology and Management, Bhubaneswar Campus Ramchandrapur, P.O. - Jatni, Bhubaneswar, Khurda, Odisha, India - 752050</p>
         </div>
       </div>

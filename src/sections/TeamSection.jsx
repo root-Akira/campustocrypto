@@ -18,8 +18,8 @@ export default function TeamSection() {
       <p className="page-subtitle">Meet the people building CampustoCrypto.</p>
       <Reveal>
         <div className="card-grid">
-          {members.map((m, i) => (
-            <div className="card" key={i}>
+          {members.map((m) => (
+            <div className="card" key={m.name}>
               <Avatar name={m.name} />
               <h3>{m.name}</h3>
               <p className="team-role">{m.role}</p>

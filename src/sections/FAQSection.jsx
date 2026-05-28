@@ -29,8 +29,8 @@ export default function FAQSection() {
       <p className="page-subtitle">Got questions? We've got answers.</p>
       <Reveal>
         <div className="faq-list">
-          {faqs.map((faq, i) => (
-            <FaqItem key={i} faq={faq} />
+          {faqs.map((faq) => (
+            <FaqItem key={faq.q} faq={faq} />
           ))}
         </div>
       </Reveal>
