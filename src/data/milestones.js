@@ -10,9 +10,19 @@ export const milestones = [
     text: 'Introduced a 4-credit specialized skill course in Blockchain technology for students across disciplines at Centurion University.',
   },
   {
+    year: '2019',
+    title: 'First DAPP — Blockation',
+    text: 'Launched our first decentralized application named "Blockation", marking the first step into building real-world blockchain solutions on campus.',
+  },
+  {
     year: '2020',
     title: 'Campus to Crypto Community',
     text: 'Launched the Campus to Crypto community, building a thriving Web3 ecosystem across Odisha\'s campuses — active and growing since 2020.',
+  },
+  {
+    year: '2021',
+    title: 'Web App — Blockcation',
+    text: 'Launched the web application of our first DAPP "Blockcation", expanding accessibility and bringing blockchain tools to a wider audience.',
   },
   {
     year: '2024',

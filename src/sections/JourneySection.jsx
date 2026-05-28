@@ -11,8 +11,8 @@ export default function JourneySection() {
       </p>
       <div className="timeline">
         <div className="timeline-line" />
-        {milestones.map((m, i) => (
-          <div className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'}`} key={m.year}>
+          {milestones.slice(0, 4).map((m, i) => (
+          <div className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'}`}           key={m.title}>
             <div className="timeline-dot" />
             <Reveal>
               <div className="timeline-card">
