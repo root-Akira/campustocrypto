@@ -32,8 +32,8 @@ export default function HeroSection() {
         </Reveal>
         <Reveal>
           <div className="cta-group">
-            <Link to="/register" className="btn-large btn-primary">Register for upcoming event →</Link>
-            <a href="#about" className="btn-large btn-secondary">Learn More</a>
+            <Link to="/register" className="btn-large btn-primary">Upcoming Event →</Link>
+            <Link to="/about" className="btn-large btn-secondary">Learn More</Link>
           </div>
         </Reveal>
       </main>
