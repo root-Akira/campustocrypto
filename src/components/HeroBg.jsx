@@ -11,6 +11,7 @@ export default function HeroBg() {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
+          objectPosition: 'center',
         }}
       >
         <source src="/video/hero-bg.mp4" type="video/mp4" />
