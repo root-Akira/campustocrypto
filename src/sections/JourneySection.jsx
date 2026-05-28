@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 
 const milestones = [
@@ -49,6 +50,9 @@ export default function JourneySection() {
             </Reveal>
           </div>
         ))}
+      </div>
+      <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <Link to="/journey" style={{ color: 'var(--accent-color)', fontWeight: 700, fontSize: '0.9rem' }}>See More →</Link>
       </div>
     </section>
   )

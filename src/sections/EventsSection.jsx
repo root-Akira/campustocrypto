@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 
 const items = [
@@ -27,7 +28,7 @@ export default function EventsSection() {
       </Reveal>
       <Reveal>
         <div className="cta-group" style={{ justifyContent: 'center' }}>
-          <a href="#join" className="btn-large btn-primary">RSVP for Next Event →</a>
+          <Link to="/events" className="btn-large btn-primary">See More →</Link>
         </div>
       </Reveal>
     </section>

@@ -11,7 +11,8 @@ export default function useScrollReveal(threshold = 0.15) {
       ([entry]) => {
         if (entry.isIntersecting) {
           el.classList.add('visible')
-          observer.unobserve(el)
+        } else {
+          el.classList.remove('visible')
         }
       },
       { threshold }

@@ -6,6 +6,11 @@ const members = [
   { name: 'Sunny Singh', role: 'Community Manager' },
 ]
 
+function Avatar({ name }) {
+  const initials = name.split(' ').map(n => n[0]).join('')
+  return <div className="team-avatar">{initials}</div>
+}
+
 export default function TeamSection() {
   return (
     <section id="team" className="content-page">
@@ -15,6 +20,7 @@ export default function TeamSection() {
         <div className="card-grid">
           {members.map((m, i) => (
             <div className="card" key={i}>
+              <Avatar name={m.name} />
               <h3>{m.name}</h3>
               <p className="team-role">{m.role}</p>
             </div>

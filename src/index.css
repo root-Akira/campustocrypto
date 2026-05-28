@@ -32,11 +32,6 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   padding-top: var(--nav-height);
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='8' fill='none' stroke='%23ef6c61' stroke-width='1.8'/%3E%3Ccircle cx='14' cy='14' r='2.5' fill='%23ef6c61'/%3E%3C/svg%3E") 14 14, auto;
-}
-
-a, button, input, textarea, .card, .faq-item {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='10' fill='%23ef6c61' opacity='0.9'/%3E%3Ccircle cx='14' cy='14' r='3' fill='white'/%3E%3C/svg%3E") 14 14, pointer;
 }
 
 #root {
@@ -272,7 +267,7 @@ h1 {
   position: relative;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 30px 20px;
+  padding: 15px 20px;
   width: 100%;
 }
 
@@ -512,6 +507,25 @@ h1 {
   }
 }
 
+.team-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .team-avatar {
+  transform: scale(1.1);
+}
+
 .team-role {
   text-transform: uppercase;
   font-size: 0.65rem;
@@ -523,12 +537,77 @@ h1 {
 footer {
   z-index: 2;
   position: relative;
+  padding: 10px 20px;
+  margin: 30px auto;
+  max-width: 800px;
+  width: calc(100% - 40px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   text-align: center;
-  padding: 30px 20px;
-  font-size: 1rem;
-  color: #000;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-divider {
+  width: 1px;
+  height: 50px;
+  background: rgba(0,0,0,0.15);
+}
+
+.footer-logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.8rem;
+}
+
+.footer-email a {
+  color: var(--accent-color);
+  text-decoration: none;
   font-weight: 700;
-  margin-top: auto;
+  transition: opacity 0.2s;
+  font-size: 0.8rem;
+}
+
+.footer-email a:hover {
+  opacity: 0.7;
+}
+
+.footer-contact {
+  opacity: 0.7;
+  font-size: 0.75rem;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #000;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-top: 4px;
 }
 
 .mobile-toggle {

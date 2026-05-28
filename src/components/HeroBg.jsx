@@ -13,7 +13,7 @@ export default function HeroBg() {
           objectFit: 'cover',
         }}
       >
-        <source src="/hero-bg.mp4" type="video/mp4" />
+        <source src="/video/hero-bg.mp4" type="video/mp4" />
       </video>
     </div>
   )
