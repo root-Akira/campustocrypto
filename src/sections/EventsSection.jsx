@@ -19,7 +19,7 @@ export default function EventsSection() {
         </div>
       </Reveal>
       <Reveal>
-        <div className="cta-group" style={{ justifyContent: 'center' }}>
+        <div className="cta-group cta-centered">
           <Link to="/events" className="btn-large btn-primary">See More →</Link>
         </div>
       </Reveal>

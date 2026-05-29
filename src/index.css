@@ -13,11 +13,7 @@
   --glass-border: rgba(255, 255, 255, 0.18);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
   --font-main: 'Space Mono', monospace;
-}
-
-:root {
   --nav-height: 80px;
-  --cursor-color: #ef6c61;
 }
 
 section {
@@ -101,13 +97,11 @@ nav {
   transition: width 0.3s ease;
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
+.nav-links a:hover::after {
   width: 100%;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   opacity: 0.8;
 }
 
@@ -201,6 +195,10 @@ h1 {
   display: flex;
   gap: 25px;
   margin-bottom: 100px;
+}
+
+.cta-centered {
+  justify-content: center;
 }
 
 .btn-large {
@@ -312,6 +310,30 @@ h1 {
   opacity: 0.8;
   font-size: 0.95rem;
   margin-bottom: 50px;
+}
+
+.centered-page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.about-page {
+  padding-top: 50px;
+}
+
+.see-more-wrap {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.see-more-link {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .card-grid {
@@ -642,46 +664,6 @@ footer {
 
 .mobile-toggle:hover {
   transform: scale(1.1);
-}
-
-.join-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.join-form input,
-.join-form textarea {
-  font-family: var(--font-main);
-  padding: 15px 20px;
-  border-radius: 12px;
-  border: 1px solid var(--glass-border);
-  background: var(--glass-bg);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: var(--text-color);
-  font-size: 0.85rem;
-  outline: none;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.join-form input:focus,
-.join-form textarea:focus {
-  border-color: var(--accent-color);
-  box-shadow: 0 0 0 3px rgba(239, 108, 97, 0.15);
-}
-
-.join-form input::placeholder,
-.join-form textarea::placeholder {
-  color: var(--text-color);
-  opacity: 0.4;
-}
-
-.join-form textarea {
-  min-height: 120px;
-  resize: vertical;
 }
 
 /* Scroll reveal */

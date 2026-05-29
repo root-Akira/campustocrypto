@@ -7,7 +7,7 @@ export default function About() {
   return (
     <>
       <Navbar />
-      <div className="content-page" style={{ paddingTop: '50px' }}>
+      <div className="content-page about-page">
         <h1>About Us</h1>
         <p className="page-subtitle">Empowering students to explore blockchain and crypto together.</p>
         <Reveal>

@@ -24,8 +24,8 @@ export default function JourneySection() {
           </div>
         ))}
       </div>
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <Link to="/journey" style={{ color: 'var(--accent-color)', fontWeight: 700, fontSize: '0.9rem' }}>See More →</Link>
+      <div className="see-more-wrap">
+        <Link to="/journey" className="see-more-link">See More →</Link>
       </div>
     </section>
   )

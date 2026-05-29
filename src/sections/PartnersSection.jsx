@@ -6,8 +6,9 @@ import {
   NetworkFilecoin,
   NetworkStacks,
   NetworkAvalanche,
+  TokenICP,
+  TokenNEXA,
 } from '@web3icons/react'
-import { TokenICP, TokenNEXA } from '@web3icons/react'
 
 const partners = [
   { name: 'Polkadot', icon: NetworkPolkadot, url: 'https://polkadot.network' },

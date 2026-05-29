@@ -7,7 +7,7 @@ export default function Register() {
   return (
     <>
       <Navbar />
-      <div className="content-page" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' }}>
+      <div className="content-page centered-page">
         <h1>Coming Soon.....</h1>
         <p className="page-subtitle">We're working on something exciting. Stay tuned!</p>
         <Link to="/" className="btn-large btn-primary">Back to Home →</Link>
