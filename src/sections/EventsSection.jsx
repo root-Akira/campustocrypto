@@ -1,8 +1,44 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
-import { events } from '../data/events'
+import { fetchUpcomingEvents } from '../data/events'
+
+function formatAMPM(time) {
+  if (!time) return ''
+  const [h, m] = time.split(':')
+  const hour = parseInt(h)
+  return `${hour % 12 || 12}:${m} ${hour >= 12 ? 'PM' : 'AM'}`
+}
 
 export default function EventsSection() {
+  const [events, setEvents] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetchUpcomingEvents().then(data => {
+      setEvents(data)
+      setLoading(false)
+    })
+  }, [])
+
+  if (loading) {
+    return (
+      <section id="events" className="content-page">
+        <h1>Events</h1>
+        <p className="page-subtitle">Workshops, hackathons, and meetups — there's always something happening.</p>
+        <div className="card-grid">
+          {[1,2,3,4,5,6].map(i => (
+            <div key={i} className="card" style={{ opacity: 0.4 }}>
+              <div className="card-icon">📌</div>
+              <h3 style={{ background: 'var(--glass-bg)', height: 14, width: '60%', borderRadius: 4 }}>&nbsp;</h3>
+              <p style={{ background: 'var(--glass-bg)', height: 10, width: '80%', borderRadius: 4, marginTop: 8 }}>&nbsp;</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section id="events" className="content-page">
       <h1>Events</h1>
@@ -13,7 +49,19 @@ export default function EventsSection() {
             <div className="card" key={item.title}>
               <div className="card-icon">{item.icon}</div>
               <h3>{item.title}</h3>
+              {item.date && (
+                <p style={{ fontSize: '0.65rem', opacity: 0.6, marginBottom: 4 }}>
+                  {new Date(item.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}
+                  {item.time ? ` at ${formatAMPM(item.time)}` : ''}
+                </p>
+              )}
               <p>{item.text}</p>
+              {item.registration_link && (
+                <a href={item.registration_link} target="_blank" rel="noopener noreferrer"
+                   style={{ fontSize: '0.7rem', color: 'var(--accent-color)', fontWeight: 700, marginTop: 8, display: 'inline-block' }}>
+                  Register →
+                </a>
+              )}
             </div>
           ))}
         </div>

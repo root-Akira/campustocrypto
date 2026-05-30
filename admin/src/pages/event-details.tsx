@@ -1,15 +1,20 @@
-import { useParams, Link } from 'react-router-dom'
-import { useEvent, useSetFeatured } from '@/hooks/useEvents'
+import { useState } from 'react'
+import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useEvent, useSetFeatured, useDeleteEvent } from '@/hooks/useEvents'
 import { Skeleton } from '@/components/ui/skeleton'
+import { ConfirmModal } from '@/components/ui/confirm-modal'
 import { useToast } from '@/components/ui/toast'
 import { formatDate, formatTime } from '@/lib/utils'
-import { Edit2, ArrowLeft, Star, StarOff } from 'lucide-react'
+import { Edit2, ArrowLeft, Star, StarOff, Trash2 } from 'lucide-react'
 
 export default function EventDetails() {
   const { id } = useParams<{ id: string }>()
+  const navigate = useNavigate()
   const { data: event, isLoading } = useEvent(id!)
   const setFeatured = useSetFeatured()
+  const deleteEvent = useDeleteEvent()
   const { toast } = useToast()
+  const [showDelete, setShowDelete] = useState(false)
 
   const handleToggleFeatured = async () => {
     if (!event) return
@@ -23,6 +28,17 @@ export default function EventDetails() {
       }
     } catch {
       toast('Failed to update featured status', 'error')
+    }
+  }
+
+  const handleDelete = async () => {
+    if (!event) return
+    try {
+      await deleteEvent.mutateAsync(event.id)
+      toast('Event deleted')
+      navigate('/events')
+    } catch {
+      toast('Failed to delete event', 'error')
     }
   }
 
@@ -76,6 +92,12 @@ export default function EventDetails() {
               <Link to={`/events/edit/${event.id}`} className="btn-ghost px-4 py-2 rounded-xl text-xs flex items-center gap-1.5">
                 <Edit2 size={14} /> Edit
               </Link>
+              <button
+                onClick={() => setShowDelete(true)}
+                className="btn-ghost px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 text-red-400"
+              >
+                <Trash2 size={14} /> Delete
+              </button>
             </div>
           </div>
 
@@ -109,6 +131,15 @@ export default function EventDetails() {
           </div>
         </div>
       </div>
+
+      <ConfirmModal
+        open={showDelete}
+        onClose={() => setShowDelete(false)}
+        onConfirm={handleDelete}
+        title="Delete Event"
+        message="Are you sure you want to delete this event? This action cannot be undone."
+        loading={deleteEvent.isPending}
+      />
     </div>
   )
 }
