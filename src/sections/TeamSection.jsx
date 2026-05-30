@@ -1,9 +1,10 @@
 import Reveal from '../components/Reveal'
 
 const members = [
-  { name: 'Abhi Mitra', role: 'Co-founder & Lead' },
-  { name: 'Siddharth Kumar', role: 'Co-founder & Lead' },
-  { name: 'Sunny Singh', role: 'Community Manager' },
+  { name: 'Abhi Mitra', role: 'Co-founder & Lead', url: 'https://x.com/abhimitrax' },
+  { name: 'Siddharth Kumar', role: 'Co-founder & Lead', url: 'https://x.com/Sidd_BITCOIN' },
+  { name: 'Promise Wilfred', role: 'Community President', url: 'https://x.com/Promise_wils' },
+  { name: 'Sunny Singh', role: 'Community Manager', url: 'https://x.com/with_AK1RA' },
 ]
 
 function Avatar({ name }) {
@@ -17,13 +18,13 @@ export default function TeamSection() {
       <h1>Our Team</h1>
       <p className="page-subtitle">Meet the people building CampustoCrypto.</p>
       <Reveal>
-        <div className="card-grid">
+        <div className="card-grid team-grid">
           {members.map((m) => (
-            <div className="card" key={m.name}>
+            <a href={m.url} target="_blank" rel="noopener noreferrer" className="card" key={m.name}>
               <Avatar name={m.name} />
               <h3>{m.name}</h3>
               <p className="team-role">{m.role}</p>
-            </div>
+            </a>
           ))}
         </div>
       </Reveal>
