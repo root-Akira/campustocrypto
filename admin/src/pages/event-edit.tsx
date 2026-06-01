@@ -19,7 +19,7 @@ export default function EventEdit() {
   const handleImageUpload = async (file: File) => {
     setUploading(true)
     try {
-      const path = `events/${Date.now()}-${file.name}`
+      const path = `events/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`
       const url = await uploadImage(file, path)
       setUploadedPath(url)
       toast('Image uploaded')

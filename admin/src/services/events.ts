@@ -24,9 +24,8 @@ export async function fetchEvent(id: string): Promise<Event | null> {
     .from('events')
     .select('*')
     .eq('id', id)
-    .single()
   if (error) throw error
-  return data
+  return data?.[0] ?? null
 }
 
 export async function createEvent(event: EventFormData): Promise<Event> {
