@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import HeroBg from '../components/HeroBg'
 import Countdown from '../components/Countdown'
+import { useAutoRefresh } from '../hooks/useAutoRefresh'
 import { fetchFeaturedEvent } from '../data/events'
 
 function formatAMPM(time) {
@@ -14,11 +14,7 @@ function formatAMPM(time) {
 }
 
 export default function Register() {
-  const [event, setEvent] = useState(null)
-
-  useEffect(() => {
-    fetchFeaturedEvent().then(setEvent)
-  }, [])
+  const { data: event } = useAutoRefresh(fetchFeaturedEvent)
 
   return (
     <>

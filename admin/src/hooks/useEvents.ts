@@ -6,6 +6,7 @@ export function useEvents() {
   return useQuery({
     queryKey: ['events'],
     queryFn: eventsService.fetchEvents,
+    refetchInterval: 5000,
   })
 }
 
@@ -14,6 +15,7 @@ export function useEvent(id: string) {
     queryKey: ['events', id],
     queryFn: () => eventsService.fetchEvent(id),
     enabled: !!id,
+    refetchInterval: 5000,
   })
 }
 
@@ -46,6 +48,7 @@ export function useDashboardStats() {
   return useQuery({
     queryKey: ['dashboard-stats'],
     queryFn: eventsService.fetchDashboardStats,
+    refetchInterval: 5000,
   })
 }
 

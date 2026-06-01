@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import HeroBg from '../components/HeroBg'
 import Reveal from '../components/Reveal'
+import { useAutoRefresh } from '../hooks/useAutoRefresh'
 import { fetchAllEvents } from '../data/events'
 
 function formatAMPM(time) {
@@ -14,15 +14,7 @@ function formatAMPM(time) {
 }
 
 export default function Events() {
-  const [events, setEvents] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetchAllEvents().then(data => {
-      setEvents(data)
-      setLoading(false)
-    })
-  }, [])
+  const { data: events = [], loading } = useAutoRefresh(fetchAllEvents)
 
   return (
     <>
@@ -40,6 +32,11 @@ export default function Events() {
                   <p style={{ background: 'var(--glass-bg)', height: 10, width: '80%', borderRadius: 4, marginTop: 8 }}>&nbsp;</p>
                 </div>
               ))}
+            </div>
+          ) : events.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: 60, opacity: 0.5 }}>
+              <p style={{ fontSize: '2.5rem', marginBottom: 8 }}>📌</p>
+              <p>No events yet. Check back soon!</p>
             </div>
           ) : (
             <div className="card-grid">

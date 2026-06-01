@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
+import { useAutoRefresh } from '../hooks/useAutoRefresh'
 import { fetchUpcomingEvents } from '../data/events'
 
 function formatAMPM(time) {
@@ -11,15 +11,7 @@ function formatAMPM(time) {
 }
 
 export default function EventsSection() {
-  const [events, setEvents] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetchUpcomingEvents().then(data => {
-      setEvents(data)
-      setLoading(false)
-    })
-  }, [])
+  const { data: events = [], loading } = useAutoRefresh(fetchUpcomingEvents)
 
   if (loading) {
     return (
@@ -44,6 +36,12 @@ export default function EventsSection() {
       <h1>Events</h1>
       <p className="page-subtitle">Workshops, hackathons, and meetups — there's always something happening.</p>
       <Reveal>
+        {events.length === 0 ? (
+          <div style={{ textAlign: 'center', padding: 40, opacity: 0.5 }}>
+            <p style={{ fontSize: '2rem', marginBottom: 8 }}>📌</p>
+            <p>No upcoming events yet. Check back soon!</p>
+          </div>
+        ) : (
         <div className="card-grid">
           {events.slice(0, 6).map((item) => (
             <div className="card" key={item.title}>
@@ -65,6 +63,7 @@ export default function EventsSection() {
             </div>
           ))}
         </div>
+        )}
       </Reveal>
       <Reveal>
         <div className="cta-group cta-centered">

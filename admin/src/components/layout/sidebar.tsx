@@ -1,11 +1,7 @@
 import { NavLink } from 'react-router-dom'
-import {
-  LayoutDashboard, Calendar, CalendarPlus, CalendarCheck, CalendarX, LogOut, Sun, Moon,
-} from 'lucide-react'
+import { LayoutDashboard, Calendar, CalendarPlus, CalendarCheck, CalendarX, LogOut } from 'lucide-react'
 
 interface SidebarProps {
-  dark: boolean
-  toggleTheme: () => void
   onSignOut: () => void
   open: boolean
   onClose: () => void
@@ -19,7 +15,7 @@ const links = [
   { to: '/events/previous', label: 'Previous', icon: CalendarX },
 ]
 
-export function Sidebar({ dark, toggleTheme, onSignOut, open, onClose }: SidebarProps) {
+export function Sidebar({ onSignOut, open, onClose }: SidebarProps) {
   return (
     <>
       {open && (
@@ -43,6 +39,7 @@ export function Sidebar({ dark, toggleTheme, onSignOut, open, onClose }: Sidebar
             <NavLink
               key={l.to}
               to={l.to}
+              end={l.to === '/events'}
               onClick={onClose}
               className={({ isActive }) =>
                 `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
@@ -59,10 +56,6 @@ export function Sidebar({ dark, toggleTheme, onSignOut, open, onClose }: Sidebar
         </nav>
 
         <div className="p-3 border-t border-[var(--glass-border)] space-y-1 shrink-0">
-          <button onClick={toggleTheme} className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-[var(--glass-bg)] opacity-70 hover:opacity-100 w-full transition-all">
-            {dark ? <Sun size={18} /> : <Moon size={18} />}
-            {dark ? 'Light Mode' : 'Dark Mode'}
-          </button>
           <button onClick={onSignOut} className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-[var(--glass-bg)] opacity-70 hover:opacity-100 w-full transition-all text-red-400">
             <LogOut size={18} />
             Logout

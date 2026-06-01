@@ -4,8 +4,6 @@ import { Sidebar } from './sidebar'
 import { Navbar } from './navbar'
 
 interface DashboardLayoutProps {
-  dark: boolean
-  toggleTheme: () => void
   onSignOut: () => void
 }
 
@@ -17,7 +15,7 @@ const titles: Record<string, string> = {
   '/events/previous': 'Previous Events',
 }
 
-export function DashboardLayout({ dark, toggleTheme, onSignOut }: DashboardLayoutProps) {
+export function DashboardLayout({ onSignOut }: DashboardLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { pathname } = useLocation()
 
@@ -32,8 +30,6 @@ export function DashboardLayout({ dark, toggleTheme, onSignOut }: DashboardLayou
   return (
     <div className="min-h-screen flex">
       <Sidebar
-        dark={dark}
-        toggleTheme={toggleTheme}
         onSignOut={onSignOut}
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}

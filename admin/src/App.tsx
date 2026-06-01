@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
-import { useTheme } from '@/hooks/useTheme'
 import { DashboardLayout } from '@/components/layout/dashboard-layout'
 import Login from '@/pages/login'
 import Dashboard from '@/pages/dashboard'
@@ -25,10 +24,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  const { dark, toggle } = useTheme()
   const { signOut } = useAuth()
-
-  const layoutProps = { dark, toggleTheme: toggle, onSignOut: signOut }
 
   return (
     <Routes>
@@ -36,7 +32,7 @@ export default function App() {
       <Route
         element={
           <ProtectedRoute>
-            <DashboardLayout {...layoutProps} />
+            <DashboardLayout onSignOut={signOut} />
           </ProtectedRoute>
         }
       >
