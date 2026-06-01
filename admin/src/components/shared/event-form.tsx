@@ -12,6 +12,7 @@ const schema = z.object({
   location: z.string().min(1, 'Location is required'),
   registration_link: z.string().url('Must be a valid URL').optional().or(z.literal('')),
   cover_image: z.string().optional(),
+  show_on_homepage: z.boolean(),
 })
 
 interface EventFormProps {
@@ -43,6 +44,7 @@ export function EventForm({
       location: '',
       registration_link: '',
       cover_image: '',
+      show_on_homepage: false,
       ...defaultValues,
     },
   })
@@ -88,6 +90,11 @@ export function EventForm({
           <input {...register('registration_link')} className="w-full bg-transparent border border-[var(--glass-border)] rounded-xl px-4 py-2.5 text-sm outline-none focus:border-[var(--accent-color)] transition-colors" placeholder="https://..." />
           {errors.registration_link && <p className="text-red-500 text-xs mt-1">{errors.registration_link.message}</p>}
         </div>
+
+        <label className="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" {...register('show_on_homepage')} className="w-4 h-4 rounded border-[var(--glass-border)] text-[var(--accent-color)] focus:ring-[var(--accent-color)]" />
+          <span className="text-xs font-bold uppercase tracking-wider opacity-60">Show on Homepage</span>
+        </label>
       </div>
 
       <div className="glass rounded-2xl p-6 space-y-4">

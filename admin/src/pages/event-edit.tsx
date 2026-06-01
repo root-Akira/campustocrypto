@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useEvent, useUpdateEvent } from '@/hooks/useEvents'
 import { EventForm } from '@/components/shared/event-form'
-import { uploadImage } from '@/services/events'
+import { uploadImage, countHomepageEvents } from '@/services/events'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useToast } from '@/components/ui/toast'
 import type { EventFormData } from '@/types'
@@ -35,7 +35,14 @@ export default function EventEdit() {
   }
 
   const handleSubmit = async (data: EventFormData) => {
-    if (!id) return
+    if (!id || !event) return
+    if (data.show_on_homepage && !event.show_on_homepage) {
+      const count = await countHomepageEvents()
+      if (count >= 3) {
+        toast('Only 3 events can be shown on the homepage. Uncheck another event first.', 'error')
+        return
+      }
+    }
     try {
       await updateEvent.mutateAsync({
         id,
@@ -78,6 +85,7 @@ export default function EventEdit() {
         location: event.location,
         registration_link: event.registration_link ?? '',
         cover_image: event.cover_image ?? '',
+        show_on_homepage: event.show_on_homepage,
       }}
       onSubmit={handleSubmit}
       onImageUpload={handleImageUpload}

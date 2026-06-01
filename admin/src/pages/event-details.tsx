@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { useEvent, useSetFeatured, useDeleteEvent } from '@/hooks/useEvents'
+import { useEvent, useUpdateEvent, useSetFeatured, useDeleteEvent } from '@/hooks/useEvents'
+import { countHomepageEvents } from '@/services/events'
 import { Skeleton } from '@/components/ui/skeleton'
 import { ConfirmModal } from '@/components/ui/confirm-modal'
 import { useToast } from '@/components/ui/toast'
 import { formatDate, formatTime } from '@/lib/utils'
-import { Edit2, ArrowLeft, Star, StarOff, Trash2 } from 'lucide-react'
+import { Edit2, ArrowLeft, Star, StarOff, Trash2, Home } from 'lucide-react'
 
 export default function EventDetails() {
   const { id } = useParams<{ id: string }>()
@@ -13,6 +14,7 @@ export default function EventDetails() {
   const { data: event, isLoading } = useEvent(id!)
   const setFeatured = useSetFeatured()
   const deleteEvent = useDeleteEvent()
+  const updateEvent = useUpdateEvent()
   const { toast } = useToast()
   const [showDelete, setShowDelete] = useState(false)
 
@@ -88,6 +90,24 @@ export default function EventDetails() {
               >
                 {event.featured ? <StarOff size={14} /> : <Star size={14} />}
                 {event.featured ? 'Remove Featured' : 'Set as Featured'}
+              </button>
+              <button
+                onClick={async () => {
+                  if (!event.show_on_homepage) {
+                    const count = await countHomepageEvents()
+                    if (count >= 3) {
+                      toast('Only 3 events can be shown on the homepage. Remove another event first.', 'error')
+                      return
+                    }
+                  }
+                  await updateEvent.mutateAsync({ id: event.id, data: { show_on_homepage: !event.show_on_homepage } })
+                  toast(event.show_on_homepage ? 'Removed from homepage' : 'Added to homepage')
+                }}
+                className={`btn-ghost px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 ${event.show_on_homepage ? 'text-green-400' : ''}`}
+                disabled={updateEvent.isPending}
+              >
+                <Home size={14} />
+                {event.show_on_homepage ? 'Remove from Homepage' : 'Show on Homepage'}
               </button>
               <Link to={`/events/edit/${event.id}`} className="btn-ghost px-4 py-2 rounded-xl text-xs flex items-center gap-1.5">
                 <Edit2 size={14} /> Edit

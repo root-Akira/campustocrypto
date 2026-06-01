@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import { useAutoRefresh } from '../hooks/useAutoRefresh'
-import { fetchUpcomingEvents } from '../data/events'
+import { fetchHomepageEvents } from '../data/events'
 
 function formatAMPM(time) {
   if (!time) return ''
@@ -11,7 +11,7 @@ function formatAMPM(time) {
 }
 
 export default function EventsSection() {
-  const { data: events = [], loading } = useAutoRefresh(fetchUpcomingEvents)
+  const { data: events = [], loading } = useAutoRefresh(fetchHomepageEvents)
 
   if (loading) {
     return (
@@ -43,7 +43,7 @@ export default function EventsSection() {
           </div>
         ) : (
         <div className="card-grid">
-          {events.slice(0, 6).map((item) => (
+          {events.slice(0, 3).map((item) => (
             <div className="card" key={item.title}>
               <div className="card-icon">{item.icon}</div>
               <h3>{item.title}</h3>

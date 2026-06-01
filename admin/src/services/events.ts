@@ -5,9 +5,18 @@ export async function fetchEvents(): Promise<Event[]> {
   const { data, error } = await supabase
     .from('events')
     .select('*')
-    .order('date', { ascending: false })
   if (error) throw error
-  return data ?? []
+  if (!data) return []
+
+  const now = new Date()
+  const upcoming = data
+    .filter(e => new Date(`${e.date}T${e.time || '00:00'}`) > now)
+    .sort((a, b) => new Date(`${a.date}T${a.time || '00:00'}`).getTime() - new Date(`${b.date}T${b.time || '00:00'}`).getTime())
+  const past = data
+    .filter(e => new Date(`${e.date}T${e.time || '00:00'}`) <= now)
+    .sort((a, b) => new Date(`${b.date}T${b.time || '00:00'}`).getTime() - new Date(`${a.date}T${a.time || '00:00'}`).getTime())
+
+  return [...upcoming, ...past]
 }
 
 export async function fetchEvent(id: string): Promise<Event | null> {
@@ -47,6 +56,14 @@ export async function deleteEvent(id: string) {
     .delete()
     .eq('id', id)
   if (error) throw error
+}
+
+const HOMEPAGE_LIMIT = 3
+
+export async function countHomepageEvents(): Promise<number> {
+  const { data, error } = await supabase.from('events').select('id').eq('show_on_homepage', true)
+  if (error) throw error
+  return data?.length ?? 0
 }
 
 export async function uploadImage(file: File, path: string): Promise<string> {

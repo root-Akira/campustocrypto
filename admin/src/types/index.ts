@@ -8,6 +8,7 @@ export interface Event {
   registration_link?: string
   cover_image?: string
   featured: boolean
+  show_on_homepage: boolean
   created_at: string
   updated_at: string
 }

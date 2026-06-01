@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCreateEvent } from '@/hooks/useEvents'
 import { EventForm } from '@/components/shared/event-form'
-import { uploadImage } from '@/services/events'
+import { uploadImage, countHomepageEvents } from '@/services/events'
 import { useToast } from '@/components/ui/toast'
 import type { EventFormData } from '@/types'
 
@@ -35,6 +35,13 @@ export default function EventCreate() {
   }
 
   const handleSubmit = async (data: EventFormData) => {
+    if (data.show_on_homepage) {
+      const count = await countHomepageEvents()
+      if (count >= 3) {
+        toast('Only 3 events can be shown on the homepage. Uncheck another event first.', 'error')
+        return
+      }
+    }
     try {
       await createEvent.mutateAsync({ ...data, cover_image: uploadedPath || undefined })
       toast('Event created')

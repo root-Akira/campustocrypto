@@ -15,8 +15,37 @@ function mapEvent(e) {
   }
 }
 
+function toDate(e) {
+  return new Date(`${e.date}T${e.time || '00:00'}`)
+}
+
 function isUpcoming(e) {
-  return new Date(`${e.date}T${e.time || '00:00'}`) > new Date()
+  return toDate(e) > new Date()
+}
+
+export async function fetchHomepageEvents() {
+  try {
+    const { data, error } = await supabase.from('events').select('*').eq('show_on_homepage', true)
+    if (error) {
+      if (error.code === 'PGRST204' || `${error.status}` === '400') {
+        const { data: fallback } = await supabase.from('events').select('*')
+        if (!fallback) return []
+        return fallback
+          .filter(isUpcoming)
+          .sort((a, b) => toDate(a) - toDate(b))
+          .slice(0, 3)
+          .map(mapEvent)
+      }
+      throw error
+    }
+    if (!data || data.length === 0) return []
+
+    return data
+      .sort((a, b) => toDate(a) - toDate(b))
+      .map(mapEvent)
+  } catch {
+    return []
+  }
 }
 
 export async function fetchUpcomingEvents() {
@@ -27,7 +56,7 @@ export async function fetchUpcomingEvents() {
 
     return data
       .filter(isUpcoming)
-      .sort((a, b) => new Date(`${a.date}T${a.time || '00:00'}`) - new Date(`${b.date}T${b.time || '00:00'}`))
+      .sort((a, b) => toDate(a) - toDate(b))
       .map(mapEvent)
   } catch {
     return []
@@ -41,8 +70,8 @@ export async function fetchAllEvents() {
     if (!data || data.length === 0) return []
 
     const mapped = data.map(mapEvent)
-    const upcoming = mapped.filter(e => isUpcoming(e))
-    const past = mapped.filter(e => !isUpcoming(e))
+    const upcoming = mapped.filter(e => isUpcoming(e)).sort((a, b) => toDate(a) - toDate(b))
+    const past = mapped.filter(e => !isUpcoming(e)).sort((a, b) => toDate(b) - toDate(a))
 
     return [...upcoming, ...past]
   } catch {
@@ -57,7 +86,7 @@ export async function fetchFeaturedEvent() {
     if (!data || data.length === 0) return null
 
     const upcoming = data.filter(isUpcoming).sort(
-      (a, b) => new Date(`${a.date}T${a.time || '00:00'}`) - new Date(`${b.date}T${b.time || '00:00'}`)
+      (a, b) => toDate(a) - toDate(b)
     )
 
     const featured = upcoming.find(e => e.featured) || upcoming[0]

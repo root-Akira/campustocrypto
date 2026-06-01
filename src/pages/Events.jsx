@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import HeroBg from '../components/HeroBg'
@@ -62,9 +61,6 @@ export default function Events() {
             </div>
           )}
         </Reveal>
-        <div style={{ textAlign: 'center', marginTop: 30 }}>
-          <Link to="/" className="btn-large btn-secondary">Back to Home</Link>
-        </div>
       </div>
       <HeroBg />
       <Footer />

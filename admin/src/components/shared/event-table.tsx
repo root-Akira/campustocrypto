@@ -94,6 +94,7 @@ export function EventTable({ events, onDelete }: EventTableProps) {
                       <div>
                         <p className="truncate max-w-[200px] sm:max-w-xs">{e.title}</p>
                         {e.featured && <span className="text-[10px] uppercase tracking-wider text-[var(--accent-color)] font-bold">Featured</span>}
+                        {e.show_on_homepage && <span className="text-[10px] uppercase tracking-wider text-green-400 font-bold ml-2">On Homepage</span>}
                       </div>
                     </div>
                   </td>
