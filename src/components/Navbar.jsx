@@ -40,7 +40,7 @@ export default function Navbar() {
       ) : (
         <Link to="/" className="logo">CampustoCrypto</Link>
       )}
-      <button className="mobile-toggle" onClick={() => setOpen((v) => !v)}>☰</button>
+      <button className="mobile-toggle" onClick={() => setOpen((v) => !v)} aria-label="Toggle navigation" aria-expanded={open}>☰</button>
       <div className={`nav-links${open ? ' open' : ''}`}>
         {links.map((l) => (
           <a key={l.href} href={l.href} onClick={(e) => { e.preventDefault(); handleClick(l.href) }}>{l.label}</a>

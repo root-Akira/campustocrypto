@@ -11,13 +11,14 @@ const faqs = [
 
 function FaqItem({ faq }) {
   const [open, setOpen] = useState(false)
+  const toggle = () => setOpen(v => !v)
   return (
-    <div className={`faq-item${open ? ' open' : ''}`} onClick={() => setOpen(!open)}>
-      <div className="faq-question">
+    <div className={`faq-item${open ? ' open' : ''}`}>
+      <button className="faq-question" onClick={toggle} aria-expanded={open}>
         <span>{faq.q}</span>
         <span className="faq-arrow">{open ? '−' : '+'}</span>
-      </div>
-      {open && <div className="faq-answer">{faq.a}</div>}
+      </button>
+      {open && <div className="faq-answer" role="region">{faq.a}</div>}
     </div>
   )
 }

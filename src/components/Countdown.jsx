@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 function calcTimeLeft(target) {
   const diff = target - Date.now()
@@ -14,21 +14,21 @@ function calcTimeLeft(target) {
 export default function Countdown({ targetDate, targetTime }) {
   const target = new Date(`${targetDate}T${targetTime || '00:00'}`).getTime()
   const [timeLeft, setTimeLeft] = useState(() => calcTimeLeft(target))
+  const targetRef = useRef(target)
+  targetRef.current = target
 
   useEffect(() => {
-    if (!timeLeft) return
     const id = setInterval(() => {
-      const t = calcTimeLeft(target)
-      if (t) setTimeLeft(t)
-      else setTimeLeft(null)
+      const t = calcTimeLeft(targetRef.current)
+      setTimeLeft(t ? t : null)
     }, 1000)
     return () => clearInterval(id)
-  }, [target, timeLeft])
+  }, [target])
 
   if (!timeLeft) return null
 
   return (
-    <div style={{
+    <div aria-live="polite" style={{
       display: 'flex', gap: 12, justifyContent: 'center',
       fontFamily: 'var(--font-main)', fontWeight: 700,
     }}>

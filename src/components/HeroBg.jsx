@@ -7,12 +7,7 @@ export default function HeroBg() {
         muted
         playsInline
         preload="auto"
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          objectPosition: 'center',
-        }}
+        aria-hidden="true"
       >
         <source src="/video/hero-bg.mp4" type="video/mp4" />
       </video>

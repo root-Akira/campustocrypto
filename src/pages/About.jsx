@@ -1,12 +1,9 @@
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import HeroBg from '../components/HeroBg'
+import Layout from '../components/Layout'
 import Reveal from '../components/Reveal'
 
 export default function About() {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <div className="content-page about-page">
         <h1>About Us</h1>
         <p className="page-subtitle">Empowering students to explore blockchain and crypto together.</p>
@@ -21,8 +18,6 @@ export default function About() {
           </div>
         </Reveal>
       </div>
-      <HeroBg />
-      <Footer />
-    </>
+    </Layout>
   )
 }

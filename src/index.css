@@ -254,6 +254,13 @@ h1 {
 
 
 
+.illustration-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .illustration-container::after {
   content: '';
   position: absolute;
@@ -380,6 +387,76 @@ h1 {
 
 .card:hover .card-icon {
   transform: scale(1.15);
+}
+
+.card-date {
+  font-size: 0.65rem;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+.card-skeleton {
+  opacity: 0.4;
+}
+
+.skeleton-line {
+  background: var(--glass-bg);
+  height: 14px;
+  width: 60%;
+  border-radius: 4px;
+}
+
+.skeleton-line-short {
+  width: 80%;
+  height: 10px;
+  margin-top: 8px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px;
+  opacity: 0.5;
+}
+
+.empty-state-icon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.countdown-card {
+  max-width: 500px;
+  margin: 0 auto 30px;
+  padding: 30px 24px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+}
+
+.register-description {
+  max-width: 600px;
+  opacity: 0.8;
+  margin: 0 auto 30px;
+  font-size: 0.9rem;
+}
+
+.register-btn {
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.register-btn.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.card-register {
+  font-size: 0.7rem;
+  color: var(--accent-color);
+  font-weight: 700;
+  margin-top: 8px;
+  display: inline-block;
+  text-decoration: none;
 }
 
 /* Numbers / Stats */
@@ -709,7 +786,6 @@ footer {
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 20px 24px;
-  cursor: pointer;
   transition: background 0.2s, transform 0.2s;
 }
 
@@ -719,6 +795,7 @@ footer {
 }
 
 .faq-question {
+  all: unset;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -726,6 +803,9 @@ footer {
   font-size: 0.85rem;
   font-weight: 700;
   line-height: 1.4;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
 }
 
 .faq-arrow {

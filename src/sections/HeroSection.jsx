@@ -4,7 +4,7 @@ import Reveal from '../components/Reveal'
 export default function HeroSection() {
   return (
     <section id="home">
-      <main className="hero">
+      <div className="hero">
         <h1>From Campus to Crypto</h1>
         <p className="subtext">
           <span>Odisha's First Blockchain Community</span>
@@ -42,7 +42,7 @@ export default function HeroSection() {
             <Link to="/about" className="btn-large btn-secondary">About Us</Link>
           </div>
         </Reveal>
-      </main>
+      </div>
     </section>
   )
 }

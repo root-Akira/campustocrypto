@@ -1,13 +1,10 @@
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
-import HeroBg from '../components/HeroBg'
+import Layout from '../components/Layout'
 import Reveal from '../components/Reveal'
 import { milestones } from '../data/milestones'
 
 export default function Journey() {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <div className="content-page">
         <h1>The Journey So Far</h1>
         <p className="page-subtitle">
@@ -16,7 +13,7 @@ export default function Journey() {
         <div className="timeline">
           <div className="timeline-line" />
           {milestones.map((m, i) => (
-            <div className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'}`}               key={m.title}>
+            <div className={`timeline-item ${i % 2 === 0 ? 'left' : 'right'}`} key={m.title}>
               <div className="timeline-dot" />
               <Reveal>
                 <div className="timeline-card">
@@ -29,8 +26,6 @@ export default function Journey() {
           ))}
         </div>
       </div>
-      <HeroBg />
-      <Footer />
-    </>
+    </Layout>
   )
 }
