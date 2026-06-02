@@ -966,8 +966,8 @@ footer {
     left: 0;
     right: 0;
     background: var(--glass-bg);
-  backdrop-filter: blur(13px);
-  -webkit-backdrop-filter: blur(13px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
     flex-direction: column;
     padding: 20px 30px;
     gap: 15px;
