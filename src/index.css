@@ -23,10 +23,10 @@ section {
 body {
   font-family: var(--font-main);
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(175, 200, 190, 0.6) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(200, 215, 210, 0.4) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(160, 190, 175, 0.5) 0%, transparent 50%),
-    linear-gradient(180deg, #cbd9d3 0%, #b8c9c1 50%, #cbd9d3 100%);
+    radial-gradient(ellipse at 20% 30%, rgba(239, 108, 97, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 70%, rgba(10, 10, 10, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 20%, rgba(255, 255, 255, 0.25) 0%, transparent 50%),
+    linear-gradient(160deg, #cbd9d3 0%, #b0c4bb 40%, #d4e0db 70%, #cbd9d3 100%);
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
