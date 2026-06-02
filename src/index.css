@@ -22,7 +22,11 @@ section {
 
 body {
   font-family: var(--font-main);
-  background: linear-gradient(135deg, #cbd9d3 0%, #b8c9c1 50%, #cbd9d3 100%);
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(175, 200, 190, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(200, 215, 210, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(160, 190, 175, 0.5) 0%, transparent 50%),
+    linear-gradient(180deg, #cbd9d3 0%, #b8c9c1 50%, #cbd9d3 100%);
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
