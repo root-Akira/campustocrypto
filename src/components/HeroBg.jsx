@@ -6,7 +6,8 @@ export default function HeroBg() {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="none"
+        poster="/video/poster.jpg"
         aria-hidden="true"
       >
         <source src="/video/mobilevideo.mp4" media="(max-width: 768px)" type="video/mp4" />
