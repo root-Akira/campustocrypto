@@ -479,12 +479,6 @@ h1 {
   border-radius: 4px;
 }
 
-.skeleton-line-short {
-  width: 80%;
-  height: 10px;
-  margin-top: 8px;
-}
-
 .empty-state {
   text-align: center;
   padding: 60px;
