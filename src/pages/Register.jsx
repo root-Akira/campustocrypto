@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import EventCard from '../components/EventCard'
@@ -25,7 +24,6 @@ export default function Register() {
           <>
             <h1>Coming Soon.....</h1>
             <p className="page-subtitle">We're working on something exciting. Stay tuned!</p>
-            <Link to="/" className="btn-large btn-primary">Back to Home →</Link>
           </>
         )}
       </div>
