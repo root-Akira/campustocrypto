@@ -22,12 +22,7 @@ section {
 
 body {
   font-family: var(--font-main);
-  background-color: #cbd9d3;
-  background-image: 
-    radial-gradient(circle at 20% 40%, rgba(239, 108, 97, 0.2) 0%, transparent 350px),
-    radial-gradient(circle at 80% 60%, rgba(10, 10, 10, 0.1) 0%, transparent 300px),
-    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 250px),
-    repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(168, 191, 176, 0.15) 40px, rgba(168, 191, 176, 0.15) 41px);
+  background: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
