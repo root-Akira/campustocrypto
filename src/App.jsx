@@ -6,7 +6,7 @@ const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
 const Register = lazy(() => import('./pages/Register'))
 const Journey = lazy(() => import('./pages/Journey'))
-const Events = lazy(() => import('./pages/Events'))
+const Gallery = lazy(() => import('./pages/Gallery'))
 
 export default function App() {
   return (
@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/journey" element={<Journey />} />
-        <Route path="/events" element={<Events />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
     </Suspense>
   )

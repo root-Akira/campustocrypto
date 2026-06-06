@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 
-export function useAutoRefresh(fetchFn, interval = 5000) {
+export function useAutoRefresh(fetchFn, interval = 30000) {
   const [data, setData] = useState(null)
   const [initialLoading, setInitialLoading] = useState(true)
   const fetchFnRef = useRef(fetchFn)

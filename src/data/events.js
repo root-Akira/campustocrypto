@@ -23,47 +23,6 @@ function isUpcoming(e) {
   return toDate(e) > new Date()
 }
 
-export async function fetchHomepageEvents(signal) {
-  try {
-    const { data, error } = await supabase.from('events').select('*', { signal }).eq('show_on_homepage', true)
-    if (error) {
-      console.error('Homepage events query failed (column may not exist):', error)
-      const { data: fallback } = await supabase.from('events').select('*', { signal })
-      if (!fallback) return []
-      return fallback
-        .filter(isUpcoming)
-        .sort((a, b) => toDate(a) - toDate(b))
-        .slice(0, 3)
-        .map(mapEvent)
-    }
-    if (!data || data.length === 0) return []
-
-    return data
-      .sort((a, b) => toDate(a) - toDate(b))
-      .map(mapEvent)
-  } catch (e) {
-    console.error('Failed to fetch homepage events:', e)
-    return []
-  }
-}
-
-export async function fetchAllEvents(signal) {
-  try {
-    const { data, error } = await supabase.from('events').select('*', { signal })
-    if (error) throw error
-    if (!data || data.length === 0) return []
-
-    const mapped = data.map(mapEvent)
-    const upcoming = mapped.filter(e => isUpcoming(e)).sort((a, b) => toDate(a) - toDate(b))
-    const past = mapped.filter(e => !isUpcoming(e)).sort((a, b) => toDate(b) - toDate(a))
-
-    return [...upcoming, ...past]
-  } catch (e) {
-    console.error('Failed to fetch all events:', e)
-    return []
-  }
-}
-
 export async function fetchFeaturedEvent(signal) {
   try {
     const { data, error } = await supabase.from('events').select('*', { signal })
