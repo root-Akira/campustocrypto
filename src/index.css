@@ -177,6 +177,13 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 28px 20px;
+  box-shadow: var(--glass-shadow);
 }
 
 .feature-icon {
@@ -465,6 +472,53 @@ h1 {
 
 .upcoming-card-link:hover {
   background: var(--accent-hover);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+.gallery-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery-body {
+  padding: 10px 12px 12px;
+}
+
+.gallery-caption {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+.gallery-event-name {
+  font-size: 0.65rem;
+  opacity: 0.55;
+  margin: 0;
 }
 
 
