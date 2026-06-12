@@ -7,7 +7,7 @@ export default function HeroSection() {
       <div className="hero">
         <h1>From Campus to Crypto</h1>
         <p className="subtext">
-          <span>Odisha's First Blockchain Community</span>
+          <span>India's First university Blockchain Community (since 2018)</span>
           <span className="sub-gap">The student-led Web3 community at Centurion University<br /></span>
           — organizing hackathons, workshops, and ecosystem events across the world's leading blockchain networks.
         </p>
