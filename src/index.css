@@ -18,8 +18,8 @@
 
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
   :root {
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.15);
   }
 }
 
@@ -31,9 +31,10 @@ body {
   font-family: var(--font-main);
   background-color: #cbd9d3;
   background-image:
-    radial-gradient(circle at 15% 25%, rgba(239, 108, 97, 0.15) 0%, transparent 450px),
-    radial-gradient(circle at 85% 70%, rgba(10, 10, 10, 0.06) 0%, transparent 350px),
-    repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(168, 191, 176, 0.15) 40px, rgba(168, 191, 176, 0.15) 41px);
+    radial-gradient(ellipse at 10% 20%, rgba(239, 108, 97, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 30%, rgba(10, 10, 10, 0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 80%, rgba(255, 255, 255, 0.35) 0%, transparent 45%);
+  background-attachment: fixed;
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
@@ -61,8 +62,8 @@ nav {
   transform: translateX(-50%);
   z-index: 100;
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 12px;
   box-shadow: var(--glass-shadow);
 }
@@ -231,8 +232,8 @@ h1 {
 
 .btn-secondary {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: var(--text-color);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
@@ -297,8 +298,8 @@ h1 {
   flex-direction: column;
   gap: 20px;
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 16px;
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
@@ -387,8 +388,8 @@ h1 {
   max-width: 480px;
   margin: 0 auto 40px;
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   overflow: hidden;
@@ -478,8 +479,8 @@ h1 {
 
 .stat-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 20px 16px;
@@ -568,8 +569,8 @@ h1 {
 
 .timeline-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 20px 24px;
@@ -637,8 +638,8 @@ h1 {
 
 .card {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 16px;
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
@@ -695,8 +696,8 @@ footer {
   max-width: 800px;
   width: calc(100% - 40px);
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 16px;
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
@@ -805,8 +806,8 @@ footer {
 
 .faq-item {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 20px 24px;
@@ -862,8 +863,8 @@ footer {
 
 .partner-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   padding: 24px 16px;
@@ -940,8 +941,8 @@ footer {
   padding: 10px 20px;
   border-radius: 50px;
   background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   display: inline-flex;
