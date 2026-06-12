@@ -9,18 +9,11 @@
   --text-color: #0a0a0a;
   --accent-color: #ef6c61;
   --accent-hover: #d95d53;
-  --glass-bg: rgba(255, 255, 255, 0.3);
-  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-bg: rgba(255, 255, 255, 0.18);
+  --glass-border: rgba(255, 255, 255, 0.22);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   --font-main: 'Space Mono', monospace;
   --nav-height: 80px;
-}
-
-@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-  :root {
-    --glass-bg: rgba(255, 255, 255, 0.06);
-    --glass-border: rgba(255, 255, 255, 0.15);
-  }
 }
 
 section {
