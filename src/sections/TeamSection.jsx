@@ -1,9 +1,10 @@
 import Reveal from '../components/Reveal'
 
 const members = [
-  { name: 'Abhi Mitra', role: 'Co-founder & Lead', url: 'https://x.com/abhimitrax' },
-  { name: 'Siddharth Kumar', role: 'Co-founder & Lead', url: 'https://x.com/Sidd_BITCOIN' },
   { name: 'Promise Wilfred', role: 'Community President', url: 'https://x.com/Promise_wils' },
+  { name: 'Nirvan Abhilash', role: 'Co-founder & Lead', url: 'https://www.linkedin.com/in/nirvan-abhilash-8a890218b/' },
+  { name: 'Siddharth Kumar', role: 'Co-founder & Lead', url: 'https://x.com/Sidd_BITCOIN' },
+  { name: 'Abhi Mitra', role: 'Co-founder & Lead', url: 'https://x.com/abhimitrax' },
   { name: 'Sunny Singh', role: 'Community Manager', url: 'https://x.com/with_AK1RA' },
 ]
 

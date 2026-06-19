@@ -699,10 +699,16 @@ h1 {
 }
 
 .team-grid {
-  grid-template-columns: repeat(4, 1fr) !important;
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
 }
 
 .team-grid .card {
+  width: calc((100% - 50px) / 3);
+  max-width: 320px;
+  min-width: 250px;
   padding: 18px 14px;
   color: var(--text-color);
   text-decoration: none;
@@ -1010,8 +1016,8 @@ footer {
     gap: 20px;
   }
 
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
+  .team-grid .card {
+    width: calc((100% - 25px) / 2);
   }
 
   nav {
@@ -1101,6 +1107,12 @@ footer {
   .card-grid {
     grid-template-columns: 1fr;
     gap: 18px;
+  }
+
+  .team-grid .card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .gallery-grid {
