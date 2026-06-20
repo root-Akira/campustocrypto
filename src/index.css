@@ -398,9 +398,11 @@ h1 {
 
 .upcoming-card-img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
   display: block;
+  margin-top: 20px;
 }
 
 .upcoming-card-body {
@@ -419,10 +421,6 @@ h1 {
 }
 
 .upcoming-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
   margin-bottom: 10px;
 }
 
@@ -431,16 +429,19 @@ h1 {
   font-weight: 700;
   color: var(--text-color);
   margin: 0;
-  text-align: left;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .upcoming-card-location {
   font-size: 0.6rem;
   opacity: 0.85;
   color: var(--text-color);
-  white-space: nowrap;
-  flex-shrink: 0;
-  margin-top: 2px;
+  display: block;
+  margin-bottom: 18px;
 }
 
 .upcoming-card-desc {
@@ -448,7 +449,7 @@ h1 {
   opacity: 0.6;
   line-height: 1.5;
   margin: 0 0 18px;
-  text-align: left;
+  text-align: center;
 }
 
 .upcoming-card-link {
@@ -1137,7 +1138,9 @@ footer {
   }
 
   .upcoming-card-img {
-    height: 140px;
+    height: auto;
+    max-height: 260px;
+    margin-top: 12px;
   }
 
   .upcoming-card-body {

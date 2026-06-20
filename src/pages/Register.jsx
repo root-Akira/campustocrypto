@@ -32,11 +32,11 @@ export default function Register() {
                 </p>
                 <div className="upcoming-card-header">
                   <h2 className="upcoming-card-title">{event.title}</h2>
-                  {event.location && (
-                    <span className="upcoming-card-location">📍 {event.location}</span>
-                  )}
                 </div>
                 <p className="upcoming-card-desc">{event.text}</p>
+                {event.location && (
+                  <span className="upcoming-card-location">📍 {event.location}</span>
+                )}
                 {event.registration_link && (
                   <a href={event.registration_link} target="_blank" rel="noopener noreferrer" className="upcoming-card-link">
                     Register →
